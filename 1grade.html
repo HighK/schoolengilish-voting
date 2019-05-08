@@ -1,0 +1,173 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="main.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <nav><div class='ico'><span style="font-size: 36px; color: red; margin-right: 20px;">HONG</span>
+    <svg xmlns="http://www.w3.org/2000/svg" width="60.266" height="55" viewBox="0 0 60.266 55"> <g id="심볼_2_1" data-name="심볼 2 – 1" transform="translate(-694 -31)"> <rect id="사각형_22" data-name="사각형 22" width="60.266" height="55" transform="translate(694 31)"/> <rect id="사각형_23" data-name="사각형 23" width="29.84" height="28.085" transform="translate(708.628 45.043)" fill="#fff"/> <rect id="사각형_19" data-name="사각형 19" width="15.213" height="18.138" transform="matrix(0.469, -0.883, 0.883, 0.469, 723.658, 75.711)"/> </g> </svg><span style="margin: 10px; font-size:20px; font-weight: bold">전자투표시스템</span>
+    </div>
+    <div class='ico'><span style="margin-right: 20px; font-size: 24px;">두명을 선택하고 제출 버튼을 누릅니다. 선택한 것을 다시 누르면 취소 됩니다.</span><button onclick='asdf()' >제출</button></div></nav>
+    <div class="main-wrapper">
+      <div class="inner-wrapper">
+        <div class="vote-wrapper">
+          <div class="vote-liner">
+            <div class="vote-liner1">
+              <div class="vote-item">
+                <div class="circle">1</div>
+                <span class="name">최지웅</span>
+              </div>
+              <div class="vote-item">
+                <div class="circle">2</div>
+                <span class="name">최지웅</span>
+              </div>
+              <div class="vote-item">
+                <div class="circle">3</div>
+                <span class="name">최지웅</span>
+              </div>
+              <div class="vote-item">
+                <div class="circle">4</div>
+                <span class="name">최지웅</span>
+              </div>
+              <div class="vote-item">
+                <div class="circle">5</div>
+                <span class="name">최지웅</span>
+              </div>
+            </div>
+          </div>
+          <div class="vote-linerx">
+            <div class="vote-liner2">
+              <div class="vote-item">
+                <div class="circle">6</div>
+                <span class="name">최지웅</span>
+              </div>
+              <div class="vote-item">
+                <div class="circle">7</div>
+                <span class="name">최지웅</span>
+              </div>
+              <div class="vote-item">
+                <div class="circle">8</div>
+                <span class="name">최지웅</span>
+              </div>
+              <div class="vote-item">
+                <div class="circle">9</div>
+                <span class="name">최지웅</span>
+              </div>
+              <div class="vote-item">
+                <div class="circle">10</div>
+                <span class="name">최지웅</span>
+              </div>
+            </div>
+          </div>
+          <div class="vote-liner">
+            <div class="vote-liner1">
+              <div class="vote-item">
+                <div class="circle">11</div>
+                <span class="name">최지웅</span>
+              </div>
+              <div class="vote-item">
+                <div class="circle">12</div>
+                <span class="name">최지웅</span>
+              </div>
+              <div class="vote-item">
+                <div class="circle">13</div>
+                <span class="name">최지웅</span>
+              </div>
+              <div class="vote-item">
+                <div class="circle">14</div>
+                <span class="name">최지웅</span>
+              </div>
+              <div class="vote-item">
+                <div class="circle">15</div>
+                <span class="name">최지웅</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+<script>
+
+gex = document.getElementsByClassName("name");
+sex = [
+        {name:"김도훈", vote:300}, // 4반
+        {name:"김상은", vote:280},
+        {name:"박예린", vote:260},
+        {name:"안소현", vote:343},
+        {name:"이주용", vote:43},
+        {name:"김태현", vote:34}, // 2반
+        {name:"이채은", vote:3},
+        {name:"장윤수", vote:0},
+        {name:"홍성아", vote:0},
+        {name:"황신우", vote:0},
+        {name:"김영한", vote:0}, // 3반
+        {name:"남유림", vote:0},
+        {name:"노시현", vote:0},
+        {name:"정근재", vote:0},
+        {name:"최소영", vote:0},
+        {name:"김소연", vote:0}, // 4ㅏㅂㄴ
+        {name:"성유정", vote:0},
+        {name:"장호승", vote:0},
+        {name:"최이삭", vote:0},
+        {name:"최지웅", vote:0}
+    ]
+
+    for(let i=0; i<gex.length; i++) {
+      gex[i].innerText = sex[i]['name'];
+    }
+
+  const a = document.getElementsByClassName('vote-item');
+  var xhttp = new XMLHttpRequest();
+
+  xhttp.onreadystatechange = function() {
+    console.log(this.status, this.readyState);
+    if (this.readyState == 4 && this.status == 200) {
+      alert("완료: 확인 버튼을 누르고 퇴장합니다.");
+      location.reload();
+    } else if(this.readyState == 4) {
+      alert("에러: 다시 제출 후 해결안되면 관리자 문의");
+    }
+  };
+
+  var lis = [];
+  for(let i=0; i<a.length; i++){
+    a[i].number = i+1;
+    a[i].addEventListener('click', function() {asd(a[i].number)});
+  }
+
+  function asd(num) {
+    
+    if(!a[num-1].active) {
+      if(lis.length == 2) {
+        alert("2명을 선택해주세요.");
+      } else {
+        a[num-1].active = true;
+        lis.push(num);
+        a[num-1].children[1].classList.toggle('sel');
+        a[num-1].classList.toggle('sel');
+      }
+    }
+    else {
+      a[num-1].active = false;
+      lis.splice(lis.indexOf(num), 1);
+      a[num-1].children[1].classList.toggle('sel');
+      a[num-1].classList.toggle('sel');
+    }
+  }
+
+  function asdf() {
+    if(lis.length == 2) {
+      xhttp.open("GET", `/?fst=${lis[0]}&scd=${lis[1]}`, true);
+      xhttp.send();
+    }
+    else {
+      alert("2명을 선택해주세요.");
+    }
+  }
+  </script>
+</html>
