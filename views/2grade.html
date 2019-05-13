@@ -182,7 +182,7 @@ window.onload = () => {
 }
 
 let getCount = () => {
-  fetch('http://localhost:3000/count').then((res) => {
+  fetch('/count').then((res) => {
   if (res.status === 200) {
     res.text().then(text => printCount.innerText = text+"명");
     } else {
@@ -193,7 +193,7 @@ let getCount = () => {
 
 let front = () => {
   if(lis.length == 2) {
-    fetch(`http://localhost:3000/poll1/?fst=${lis[0]}&scd=${lis[1]}`).then((res) => {
+    fetch(`/poll1/?fst=${lis[0]}&scd=${lis[1]}`).then((res) => {
       if (res.status === 200) {
         alert("완료: 확인 버튼을 누르고 퇴장합니다.");
         location.reload();
