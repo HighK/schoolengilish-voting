@@ -99,10 +99,11 @@ body, html {
 }
 
 .tops-inner {
-    margin: 20px;
+    margin: 20px 20px 0px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    
 }
 
 .tops {
@@ -132,7 +133,7 @@ body, html {
 }
 
 .tops-inner>span {
-    width: 40px;
+    width: 60px;
 }
 
 .top3-name {
