@@ -118,6 +118,10 @@ app.get('/poll2',function(req,res){
     res.status(200).end();
 });
 
+app.get('/get/status',function(req,res){
+    res.end(JSON.stringify(objs1));
+});
+
 app.get('/count_1',function(req,res){
     res.end(count_1+"");
 });
