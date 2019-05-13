@@ -13,6 +13,24 @@ app.use(serveStatic(path.join(__dirname, 'public')));
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended:true}))
 
+
+objs1 = [
+    {name:"황윤서", vote:0},
+    {name:"오준상", vote:0},
+    {name:"김도희", vote:0},
+    {name:"김기욱", vote:0},
+    {name:"김초연", vote:0},
+    {name:"이형진", vote:0},
+    {name:"백서영", vote:0},
+    {name:"양재훈", vote:0},
+    {name:"박진홍", vote:0},
+    {name:"박재훈", vote:0},
+    {name:"박수혁", vote:0},
+    {name:"이성진", vote:0},
+    {name:"최승교", vote:0},
+    {name:"이재관", vote:0}
+]
+
 objs2 = [
     {name:"정근재", vote:0}, // 1반
     {name:"홍성하", vote:0},
@@ -34,23 +52,6 @@ objs2 = [
     {name:"김태현", vote:0},
     {name:"김소연", vote:0},
     {name:"박예린", vote:0},
-]
-
- objs1 = [
-     {name:"황윤서", vote:0},
-     {name:"오준상", vote:0},
-     {name:"김도희", vote:0},
-     {name:"김기욱", vote:0},
-     {name:"김초연", vote:0},
-     {name:"이형진", vote:0},
-     {name:"백서영", vote:0},
-     {name:"양재훈", vote:0},
-     {name:"박진홍", vote:0},
-     {name:"박재훈", vote:0},
-     {name:"박수혁", vote:0},
-     {name:"이성진", vote:0},
-     {name:"최승교", vote:0},
-     {name:"이재관", vote:0}
 ]
 
 var sortingField = "vote";
@@ -118,11 +119,11 @@ app.get('/poll2',function(req,res){
 });
 
 app.get('/count_1',function(req,res){
-    res.send(count_1+"");
+    res.end(count_1+"");
 });
 
 app.get('/count_2',function(req,res){
-    res.status(200).end(count_2+"");
+    res.end(count_2+"");
 });
 
 //모두확인
