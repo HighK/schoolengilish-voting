@@ -32,23 +32,23 @@ objs1 = [
 ]
 
 objs2 = [
-    {name:"정근재", vote:0}, // 1반
+    {name:"정근재", vote:0}, 
     {name:"홍성하", vote:0},
     {name:"김영한", vote:0},
     {name:"성유정", vote:0},
     {name:"이주용", vote:0},
-    {name:"노시현", vote:0}, // 2반
+    {name:"노시현", vote:0}, 
     {name:"최이삭", vote:0},
     {name:"김도훈", vote:0},
     {name:"김상은", vote:0},
     {name:"이채은", vote:0},
-    {name:"안소현", vote:0}, // 3반
+    {name:"안소현", vote:0}, 
     {name:"최소영", vote:0},
     {name:"남유림", vote:0},
     {name:"황신우", vote:0},
     {name:"장호승", vote:0},
     {name:"장윤수", vote:0},
-    {name:"최지웅", vote:0}, // 4반
+    {name:"최지웅", vote:0}, 
     {name:"김태현", vote:0},
     {name:"김소연", vote:0},
     {name:"박예린", vote:0},
@@ -130,7 +130,7 @@ app.get('/count_2',function(req,res){
 app.get('/result1',function(req,res){
     let asd = JSON.stringify(objs1);
     asd = JSON.parse(asd);
-    let ch_list = JSON.stringify(asd.sort(function(a, b){ // 내림차순
+    let ch_list = JSON.stringify(asd.sort(function(a, b){ 
         return b[sortingField] - a[sortingField];
     }));
     res.send(ch_list);
@@ -138,7 +138,7 @@ app.get('/result1',function(req,res){
 app.get('/result2',function(req,res){
     let asd = JSON.stringify(objs2);
     asd = JSON.parse(asd);
-    let ch_list = JSON.stringify(asd.sort(function(a, b){ // 내림차순
+    let ch_list = JSON.stringify(asd.sort(function(a, b){ 
         return b[sortingField] - a[sortingField];
     }));
     res.send(ch_list);
