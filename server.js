@@ -128,21 +128,40 @@ app.get('/count_2',function(req,res){
 
 //모두확인
 app.get('/result1',function(req,res){
+    res.render('1grade_result.html');
+});
+app.get('/result2',function(req,res){
+    res.render('2grade_result.html');
+});
+
+app.get('/get/result1',function(req,res){
     let asd = JSON.stringify(objs1);
     asd = JSON.parse(asd);
     let ch_list = JSON.stringify(asd.sort(function(a, b){ 
         return b[sortingField] - a[sortingField];
     }));
-    res.send(ch_list);
+    res.end(ch_list);
 });
-app.get('/result2',function(req,res){
+
+app.get('/get/result2',function(req,res){
     let asd = JSON.stringify(objs2);
     asd = JSON.parse(asd);
     let ch_list = JSON.stringify(asd.sort(function(a, b){ 
         return b[sortingField] - a[sortingField];
     }));
-    res.send(ch_list);
+    res.end(ch_list);
 });
+
+// pre
+app.get('/result1_pre',function(req,res){
+    res.render('1grade_result_pre.html');
+});
+
+app.get('/result2_pre',function(req,res){
+    res.render('2grade_result_pre.html');
+});
+
+
 
 app.listen(3000, function(){
     console.log('running on 3000 port')
