@@ -1,0 +1,43 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <ol id="lis"></ol>
+
+</body>
+<script>
+    var xhttp = new XMLHttpRequest();
+    var sex;
+    var lis = document.getElementById('lis');
+    
+
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            asd(JSON.parse(this.responseText))
+       }
+    };
+
+    
+    xhttp.open("GET", `http://10.156.146.143:3000/result2`, true);
+    xhttp.send();
+
+    function asd(sex) {
+        for(i=0; i<20; i++) {
+            plus = document.createElement('li');
+            plus.innerText = sex[i]['name'];
+            miu = document.createElement('ul');
+            mins = document.createElement('li');
+            mins.innerText = sex[i]['vote'];
+            miu.append(mins);
+            plus.append(miu);
+            lis.append(plus);
+        }
+        
+    }
+</script>
+</html>
