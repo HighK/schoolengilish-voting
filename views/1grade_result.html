@@ -6,11 +6,22 @@
     <title>result_1</title>
 </head>
 <body>
-
+    <div id="count"></div>
     <ol id="lis"></ol>
 
 </body>
 <script>
+
+    const count = document.getElementById('count');
+    fetch('/count_1').then((res) => {
+    if (res.status === 200) {
+        res.text().then(text => count.innerText = text+"명");
+        } else {
+        alert(res.statusText);
+        }
+    }).catch(err => alert(err));
+    
+
     var xhttp = new XMLHttpRequest();
     var sex;
     var lis = document.getElementById('lis');

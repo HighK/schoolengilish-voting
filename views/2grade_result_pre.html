@@ -7,6 +7,7 @@
     <title>result_2_pre</title>
 </head>
 <body>
+    <div id="count">ㅁㄴㅇ</div>
     <div class="out-wrap">
         <div class="top-wrap">
             <div class="top2-wrap">
@@ -183,7 +184,14 @@
 </body>
 
 <script>
-
+    const count = document.getElementById('count');
+    fetch('/count_2').then((res) => {
+    if (res.status === 200) {
+        res.text().then(text => count.innerText = text+"명");
+        } else {
+        alert(res.statusText);
+        }
+    }).catch(err => alert(err));
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
@@ -195,42 +203,6 @@
     xhttp.open("GET", `/get/result2`, true);
     xhttp.send();
 
-
-/*
-    sex = [
-        {name:"김도훈", vote:300}, // 4반
-        {name:"김상은", vote:280},
-        {name:"박예린", vote:260},
-        {name:"안소현", vote:343},
-        {name:"이주용", vote:43},
-        {name:"김태현", vote:34}, // 2반
-        {name:"이채은", vote:3},
-        {name:"장윤수", vote:0},
-        {name:"홍성아", vote:0},
-        {name:"황신우", vote:0},
-        {name:"김영한", vote:0}, // 3반
-        {name:"남유림", vote:0},
-        {name:"노시현", vote:0},
-        {name:"정근재", vote:0},
-        {name:"최소영", vote:0},
-        {name:"김소연", vote:0}, // 4ㅏㅂㄴ
-        {name:"성유정", vote:0},
-        {name:"장호승", vote:0},
-        {name:"최이삭", vote:0},
-        {name:"최지웅", vote:0}
-    ]
-
-    for(let i=0; i<sex.length; i++) {
-        if(i<2) {
-            console.log(i);
-            document.getElementById(i+1).children[1].children[0].innerText = sex[i]['name'];
-            document.getElementById(i+1).children[1].children[1].innerText = sex[i]['vote'];
-        } else {
-            document.getElementById(i+1).children[0].children[1].innerText = sex[i]['name'];
-            document.getElementById(i+1).children[0].children[2].innerText = sex[i]['vote'];
-        }
-    }
-*/
 
     function asd(sex) {
         

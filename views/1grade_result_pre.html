@@ -7,6 +7,7 @@
     <title>result_1_pre</title>
 </head>
 <body>
+    <div id="count">ㅁㄴㅇ</div>
     <div class="out-wrap">
         <div class="top-wrap">
             <div class="top2-wrap">
@@ -54,14 +55,12 @@
             </div>
         </div>
         <div class="middle-wrap">
-            <div class="ranks-text-wrap">
-                <div class="ranks-text">6~8등</div>
-                <div class="ranks-text">9~11등</div>
-                <div class="ranks-text">12~14등</div>
-                <div class="ranks-text">15~17등</div>
-                <div class="ranks-text">18~20등</div>
+            <div class="ranks-text-wrap" style="justify-content: start">
+                <div class="ranks-text" style="height: 70px;margin: 20px 20px 0px 20px;padding-top:20px;">6~8등</div>
+                <div class="ranks-text" style="height: 70px;margin: 20px 20px 0px 20px;padding-top:20px;">9~11등</div>
+                <div class="ranks-text" style="height: 70px;margin: 20px 20px 0px 20px;padding-top:20px;">12~14등</div>
             </div>
-            <div class="ranks-wrap">
+            <div class="ranks-wrap" style="justify-content: start">
                 <div class="tops-liner">
                     <div id="6" class="tops">
                         <div class="tops-inner">
@@ -131,58 +130,20 @@
                         </div>
                     </div>
                 </div>
-                <div class="tops-liner">
-                    <div id="15" class="tops">
-                        <div class="tops-inner">
-                            <span>#15</span>
-                            <span class="tops-name">asd</span>
-                            <span class="tops-vote">200</span>
-                        </div>
-                    </div>
-                    <div id="16" class="tops">
-                        <div class="tops-inner">
-                            <span>#16</span>
-                            <span class="tops-name">asd</span>
-                            <span class="tops-vote">200</span>
-                        </div>
-                    </div>
-                    <div id="17" class="tops">
-                        <div class="tops-inner">
-                            <span>#17</span>
-                            <span class="tops-name">asd</span>
-                            <span class="tops-vote">200</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="tops-liner">
-                    <div id="18" class="tops">
-                        <div class="tops-inner">
-                            <span>#18</span>
-                            <span class="tops-name">asd</span>
-                            <span class="tops-vote">200</span>
-                        </div>
-                    </div>
-                    <div id="19" class="tops">
-                        <div class="tops-inner">
-                            <span>#19</span>
-                            <span class="tops-name">asd</span>
-                            <span class="tops-vote">200</span>
-                        </div>
-                    </div>
-                    <div id="20" class="tops">
-                        <div class="tops-inner">
-                            <span>#20</span>
-                            <span class="tops-name">asd</span>
-                            <span class="tops-vote">200</span>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
 </body>
 
 <script>
+    const count = document.getElementById('count');
+    fetch('/count_1').then((res) => {
+    if (res.status === 200) {
+        res.text().then(text => count.innerText = text+"명");
+        } else {
+        alert(res.statusText);
+        }
+    }).catch(err => alert(err));
 
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
@@ -194,43 +155,6 @@
     
     xhttp.open("GET", `/get/result1`, true);
     xhttp.send();
-
-
-/*
-    sex = [
-        {name:"김도훈", vote:300}, // 4반
-        {name:"김상은", vote:280},
-        {name:"박예린", vote:260},
-        {name:"안소현", vote:343},
-        {name:"이주용", vote:43},
-        {name:"김태현", vote:34}, // 2반
-        {name:"이채은", vote:3},
-        {name:"장윤수", vote:0},
-        {name:"홍성아", vote:0},
-        {name:"황신우", vote:0},
-        {name:"김영한", vote:0}, // 3반
-        {name:"남유림", vote:0},
-        {name:"노시현", vote:0},
-        {name:"정근재", vote:0},
-        {name:"최소영", vote:0},
-        {name:"김소연", vote:0}, // 4ㅏㅂㄴ
-        {name:"성유정", vote:0},
-        {name:"장호승", vote:0},
-        {name:"최이삭", vote:0},
-        {name:"최지웅", vote:0}
-    ]
-
-    for(let i=0; i<sex.length; i++) {
-        if(i<2) {
-            console.log(i);
-            document.getElementById(i+1).children[1].children[0].innerText = sex[i]['name'];
-            document.getElementById(i+1).children[1].children[1].innerText = sex[i]['vote'];
-        } else {
-            document.getElementById(i+1).children[0].children[1].innerText = sex[i]['name'];
-            document.getElementById(i+1).children[0].children[2].innerText = sex[i]['vote'];
-        }
-    }
-*/
 
     function asd(sex) {
         
