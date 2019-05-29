@@ -171,7 +171,5 @@ app.listen(3000, function(){
     console.log('running on 3000 port')
     console.log("----------------1grade----------------")
     console.log(objs1);
-    console.log("----------------2grade----------------")
-    console.log(objs2);
     console.log("-----------------end------------------");
 });
