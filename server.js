@@ -169,7 +169,4 @@ app.get('/result2_pre',function(req,res){
 
 app.listen(3000, function(){
     console.log('running on 3000 port')
-    console.log("----------------1grade----------------")
-    console.log(objs1);
-    console.log("-----------------end------------------");
 });
